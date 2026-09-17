@@ -65,9 +65,22 @@ about.html          The centre, the boat, the crew, safety and equipment
 gallery.html        Photo grid
 assets/css/main.css One stylesheet, sectioned and commented
 assets/js/main.js   One script, no dependencies
-assets/img/         Photography at 800w and 1600w
-favicon.svg  robots.txt  sitemap.xml
+assets/img/         Photography at 800w and 1600w, plus the logo
+favicon.png  apple-touch-icon.png  robots.txt  sitemap.xml
 ```
+
+### Logo
+
+`assets/img/logo-320.png` and `-640.png` are the brand lockup with the teal
+background keyed out, so the white artwork sits on any dark ground with no
+halo. Generated from the client's original JPEG by taking alpha from the red
+channel (widest span between the teal and the white, so anti-aliased edges stay
+soft), then trimming to the artwork bounds. `favicon.png` and
+`apple-touch-icon.png` use the boat mark alone on `--d30` navy.
+
+To regenerate from a new source, the artwork must be white on a solid
+mid-to-dark background; the key-out assumes a single flat background colour
+sampled from the four corners.
 
 Header and footer are duplicated across pages (no templating layer). If you
 change one, change all six — they are byte-identical between `<body>` and
@@ -106,6 +119,8 @@ rather than marketing.
   can settle on stale intersections and leave whole sections invisible. A rect
   sweep always agrees with what is on screen, and there is a 4-second failsafe
   that reveals everything regardless.
+- **The nav collapses to the drawer at 1040px.** Six items plus the logo and
+  the CTA stop fitting below that; the CTA itself survives until 560px.
 - **The depth computer owns the right margin** above 1180px: content columns
   get extra right padding so body copy never runs under the readout. Below
   that the readout is replaced by a hairline progress bar under the header.
@@ -145,8 +160,6 @@ To add real ones, drop a card grid into the `.trust` block in the 5 m section.
 
 - [ ] **Add real reviews** — see above.
 - [ ] **Confirm the dive-day timeline** reflects how the day actually runs.
-- [ ] **Add an `apple-touch-icon.png`** (180×180) and link it in each `<head>`;
-      only `favicon.svg` ships, because there was no raster toolchain here.
 - [ ] **Embed a live map** in the `.map` block on the homepage and
       `dive-sites.html` if you want directions — currently static screenshots
       carried over from the old site, linked to Google Maps.

@@ -13,7 +13,8 @@
 <meta property="og:image" content="https://www.thediversboat-kohphangan.com/assets/img/boat-divers-1600.jpg">
 <meta property="og:url" content="https://www.thediversboat-kohphangan.com/about.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
@@ -41,19 +42,15 @@
 <header class="hdr">
   <div class="hdr__in">
     <a class="logo" href="/" aria-label="The Diver's Boat Koh Phangan — home">
-      <svg class="logo__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <circle cx="24" cy="24" r="22.5" stroke="currentColor" stroke-opacity=".4"/>
-        <path d="M11 25.5h26l-3.6 7.2a3 3 0 0 1-2.7 1.7H17.3a3 3 0 0 1-2.7-1.7L11 25.5Z" fill="currentColor"/>
-        <path d="M24 23.5V13m0 0 6 4m-6-4-6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M8 38.5c2.9 0 2.9-2 5.8-2s2.9 2 5.8 2 2.9-2 5.8-2 2.9 2 5.8 2 2.9-2 5.8-2 2.9 2 5.8 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-opacity=".75"/>
-      </svg>
-      <span class="logo__txt">
-        <span class="logo__name">The Diver's Boat</span>
-        <span class="logo__place">Koh Phangan</span>
-      </span>
+      <img class="logo__img" src="/assets/img/logo-320.png"
+           srcset="/assets/img/logo-320.png 320w, /assets/img/logo-640.png 640w"
+           sizes="170px" width="320" height="232" decoding="async"
+           alt="The Diver's Boat">
+      <span class="logo__place">Koh Phangan</span>
     </a>
 
     <nav class="nav" aria-label="Main">
+      <a href="/">Home</a>
       <a href="/experiences.html">Experiences</a>
       <a href="/courses.html">Courses</a>
       <a href="/dive-sites.html">Dive sites</a>
@@ -63,7 +60,7 @@
 
     <a class="btn btn--sm" href="https://wa.me/66954385374?text=Hi%20The%20Diver%27s%20Boat!%20I%27d%20like%20to%20book%20a%20dive%20in%20Koh%20Phangan." target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm5.8 14.13c-.24.68-1.42 1.3-1.95 1.35-.53.05-1.03.24-3.5-.94-2.47-1.18-4.02-3.79-4.14-3.96-.12-.18-.98-1.33-.98-2.53s.63-1.79.85-2.03c.22-.24.48-.3.65-.3.17 0 .35 0 .5.01.16.01.37-.06.58.44.21.51.72 1.77.78 1.9.06.13.1.28.01.45-.09.18-.18.29-.35.48-.18.18-.27.27-.15.53.12.26.55.95 1.18 1.53.81.74 1.49.98 1.71 1.1.21.12.35.1.48-.06.13-.16.56-.65.71-.87.15-.22.3-.18.5-.11.2.08 1.29.61 1.51.72.22.11.37.17.42.26.05.09.05.56-.19 1.24Z"/></svg>
-      Book on WhatsApp
+      Book now
     </a>
 
     <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menu">
@@ -73,13 +70,14 @@
 </header>
 
 <div class="drawer" id="drawer" data-open="false" aria-hidden="true">
-  <a href="/experiences.html"><i>01</i> Experiences</a>
-  <a href="/courses.html"><i>02</i> Courses</a>
-  <a href="/dive-sites.html"><i>03</i> Dive sites</a>
-  <a href="/about.html" aria-current="page"><i>04</i> About us</a>
-  <a href="/gallery.html"><i>05</i> Gallery</a>
-  <a href="/#contact"><i>06</i> Contact</a>
-  <a class="btn" href="https://wa.me/66954385374" target="_blank" rel="noopener">Book on WhatsApp</a>
+  <a href="/"><i>01</i> Home</a>
+  <a href="/experiences.html"><i>02</i> Experiences</a>
+  <a href="/courses.html"><i>03</i> Courses</a>
+  <a href="/dive-sites.html"><i>04</i> Dive sites</a>
+  <a href="/about.html" aria-current="page"><i>05</i> About us</a>
+  <a href="/gallery.html"><i>06</i> Gallery</a>
+  <a href="/#contact"><i>07</i> Contact</a>
+  <a class="btn" href="https://wa.me/66954385374" target="_blank" rel="noopener">Book now</a>
   <div class="drawer__foot">
     +66 95 438 5374<br>
     thaidivingpro@gmail.com<br>
@@ -316,16 +314,11 @@
     <div class="foot__grid">
       <div class="foot__brand">
         <a class="logo" href="/" aria-label="The Diver's Boat Koh Phangan — home">
-          <svg class="logo__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <circle cx="24" cy="24" r="22.5" stroke="currentColor" stroke-opacity=".4"/>
-            <path d="M11 25.5h26l-3.6 7.2a3 3 0 0 1-2.7 1.7H17.3a3 3 0 0 1-2.7-1.7L11 25.5Z" fill="currentColor"/>
-            <path d="M24 23.5V13m0 0 6 4m-6-4-6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M8 38.5c2.9 0 2.9-2 5.8-2s2.9 2 5.8 2 2.9-2 5.8-2 2.9 2 5.8 2 2.9-2 5.8-2 2.9 2 5.8 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-opacity=".75"/>
-          </svg>
-          <span class="logo__txt">
-            <span class="logo__name">The Diver's Boat</span>
-            <span class="logo__place">Koh Phangan</span>
-          </span>
+          <img class="logo__img" src="/assets/img/logo-320.png"
+               srcset="/assets/img/logo-320.png 320w, /assets/img/logo-640.png 640w"
+               sizes="170px" width="320" height="232" decoding="async"
+               alt="The Diver's Boat">
+          <span class="logo__place">Koh Phangan</span>
         </a>
         <p>SSI dive centre in Chaloklum with its own boat. Small groups to Sail Rock,
         Koh Ma, Little Sail Rock and the oil platform since January 2024.</p>

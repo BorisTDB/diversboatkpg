@@ -42,7 +42,7 @@
   /* Rhythm */
   --gut:   clamp(1.25rem, 4vw, 3rem);
   --page:  1320px;
-  --nav-h: 76px;
+  --nav-h: 88px;
 
   /* Motion */
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -227,6 +227,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font: 600 0.9375rem/1 var(--body);
   letter-spacing: 0.005em;
   border: 0; border-radius: 999px; cursor: pointer;
+  white-space: nowrap;
   box-shadow: 0 10px 28px -12px rgba(255, 122, 77, 0.8);
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease),
               background 0.2s var(--ease);
@@ -381,24 +382,24 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .logo {
-  display: flex; align-items: center; gap: 0.7rem;
+  display: flex; align-items: center; gap: 0.9rem;
   margin-right: auto; color: var(--white);
 }
-.logo__mark { width: 38px; height: 38px; flex: none; color: var(--aqua); }
-.logo__txt { display: grid; line-height: 1; }
-.logo__name {
-  font-family: var(--display); font-weight: 800;
-  font-variation-settings: "wdth" 108;
-  font-size: 0.9375rem; letter-spacing: 0.1em; text-transform: uppercase;
+.logo__img {
+  height: 60px; width: auto; flex: none;
+  /* the artwork is pure white, so it needs no colour treatment */
 }
 .logo__place {
-  font: 500 0.625rem/1.6 var(--mono);
-  letter-spacing: 0.24em; text-transform: uppercase; color: var(--aqua);
+  font: 500 0.625rem/1.35 var(--mono);
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--aqua);
+  padding-left: 0.9rem; border-left: 1px solid var(--hair-hi);
+  max-width: 5.5em;
 }
 
-.nav { display: flex; align-items: center; gap: 1.75rem; }
+.nav { display: flex; align-items: center; gap: clamp(1rem, 1.5vw, 1.75rem); }
 .nav a {
   font: 500 0.875rem/1 var(--body);
+  white-space: nowrap;
   color: rgba(255, 255, 255, 0.82);
   position: relative; padding: 0.4rem 0;
   transition: color 0.18s var(--ease);
@@ -695,10 +696,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* --------------------------------------------------------------------------
    11. Quick-book band, lifted over the hero seam
    -------------------------------------------------------------------------- */
-.lift {
-  position: relative; z-index: 4;
-  margin-top: clamp(-5rem, -6vw, -3rem);
-}
+.lift { position: relative; z-index: 4; }
 .pick { display: grid; gap: clamp(1rem, 2vw, 1.5rem); }
 @media (min-width: 900px) {
   .pick { grid-template-columns: repeat(3, 1fr) 0.92fr; align-items: stretch; }
@@ -1136,7 +1134,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .foot li a:hover, .foot address a:hover { color: var(--accent); }
 .foot address { font-style: normal; font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.8; }
-.foot__brand p { font-size: 0.9375rem; color: var(--ink-soft); margin-top: 1.1rem; max-width: 34ch; }
+.foot .logo { gap: 0.9rem; }
+.foot .logo__img { height: 76px; }
+.foot__brand p { font-size: 0.9375rem; color: var(--ink-soft); margin-top: 1.25rem; max-width: 34ch; }
 .foot__certs { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; }
 .foot__certs img {
   height: 26px; width: auto;
@@ -1157,7 +1157,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .foot__base {
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
   border-top: 1px solid var(--hair);
-  padding-block: 1.5rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  /* extra room underneath so the floating action never sits on the
+     "back to the surface" link at the very bottom of the page */
+  padding-block: 1.5rem calc(5rem + env(safe-area-inset-bottom, 0px));
   display: flex; flex-wrap: wrap; gap: 1rem;
   align-items: center; justify-content: space-between;
   font: 500 0.75rem/1.6 var(--mono); color: var(--ink-mute);
@@ -1291,15 +1293,32 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hud { display: none; }
   .hud__bar { display: block; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
   .nav { display: none; }
   .burger { display: flex; }
-  .hdr__in .btn { display: none; }
+}
+@media (max-width: 900px) {
   .hero__stats { grid-template-columns: 1fr 1fr; }
   .hero__copy { max-width: 100%; }
 }
 @media (max-width: 560px) {
-  :root { --nav-h: 66px; }
+  :root { --nav-h: 72px; }
+  .logo__img { height: 44px; }
+  .logo { gap: 0.65rem; }
+  .logo__place { padding-left: 0.65rem; letter-spacing: 0.16em; }
+  .foot .logo__img { height: 62px; }
+  .hdr__in .btn { display: none; }
+
+  /* Seven items plus the CTA have to clear a phone viewport, so the drawer
+     tightens rather than pushing "Book now" below the fold. */
+  .drawer {
+    padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 1.25rem);
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  }
+  .drawer a:not(.btn) { font-size: clamp(1.4rem, 6.4vw, 1.9rem); padding: 0.3rem 0; }
+  .drawer .btn { margin-top: 1.25rem; }
+  .drawer__foot { margin-top: 1.25rem; }
+
   .hero__stats { border-radius: 12px; }
   .hero__stats div { padding: 0.9rem; }
   .site { min-height: 380px; }

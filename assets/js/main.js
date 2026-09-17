@@ -229,26 +229,4 @@
     window.addEventListener('scroll', showWa, { passive: true });
   }
 
-  /* ----------------------------------------------------------------------
-     Current section highlight in the nav
-     ---------------------------------------------------------------------- */
-  var navLinks = [].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
-  if (navLinks.length && 'IntersectionObserver' in window) {
-    var targets = navLinks
-      .map(function (a) { return document.querySelector(a.getAttribute('href')); })
-      .filter(Boolean);
-
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        navLinks.forEach(function (a) {
-          var on = a.getAttribute('href') === '#' + en.target.id;
-          if (on) { a.setAttribute('aria-current', 'page'); }
-          else if (a.getAttribute('aria-current') === 'page') { a.removeAttribute('aria-current'); }
-        });
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-
-    targets.forEach(function (t) { spy.observe(t); });
-  }
 })();
