@@ -88,6 +88,60 @@ change one, change all six — they are byte-identical between `<body>` and
 
 ---
 
+## Hosting
+
+Served by **GitHub Pages** from `main` at the repository root — no build step.
+
+Live at **https://boristdb.github.io/diversboatkpg/**
+
+`thediversboat-kohphangan.com` still points at the old Wix site. Nothing here
+touches that; this is a parallel staging site until you choose to cut over.
+
+### Why every path is relative
+
+A project Pages site is served from a **subpath** (`/diversboatkpg/`), so
+root-absolute paths like `/assets/css/main.css` would resolve to the domain root
+and 404. Every `src`, `href` and `srcset` is therefore relative to the
+repository root, which works identically at a subpath, at a domain root and
+from a local server.
+
+Two consequences worth remembering:
+
+- **Keep them relative.** Writing `/assets/…` or `href="/"` will work locally
+  and silently break on Pages.
+- **Watch multi-line `srcset`.** Candidates on continuation lines are easy to
+  miss when doing a find-and-replace; the hero image broke exactly this way.
+  Verify by resolving each candidate with real URL semantics, not by prefixing
+  a base (which turns `/assets/…` into a harmless `//assets/…` and hides it).
+
+`.nojekyll` stops Pages running the files through Jekyll.
+
+### Cutting over to the real domain
+
+1. Add a `CNAME` file at the root containing `www.thediversboat-kohphangan.com`
+2. Point the domain's DNS at GitHub Pages (CNAME record to `boristdb.github.io`)
+3. Swap the canonical URLs back:
+
+```bash
+grep -rl 'boristdb.github.io/diversboatkpg' *.html sitemap.xml robots.txt \
+  | xargs sed -i '' 's|https://boristdb.github.io/diversboatkpg|https://www.thediversboat-kohphangan.com|g'
+```
+
+Relative asset paths need no change — that is the point of them.
+
+### Local preview
+
+```bash
+python3 -c "
+from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
+ThreadingHTTPServer(('127.0.0.1', 8787), SimpleHTTPRequestHandler).serve_forever()"
+```
+
+Use `ThreadingHTTPServer`; plain `python3 -m http.server` is single-threaded and
+drops images on these pages.
+
+---
+
 ## Design tokens
 
 Set at the top of `main.css`.

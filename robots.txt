@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.thediversboat-kohphangan.com/sitemap.xml
+Sitemap: https://boristdb.github.io/diversboatkpg/sitemap.xml
