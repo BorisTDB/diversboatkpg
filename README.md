@@ -192,7 +192,7 @@ client's own words, lightly edited for tone.
 
 **Written fresh for this build** (and worth the client's eye before launch):
 
-- The "How your dive day goes" timeline. Only the 10:00 departure is a stated
+- The "How your dive day goes" timeline. Only the 9:30 departure is a stated
   fact; the other five steps are deliberately labelled by phase
   ("Morning", "Dive one", "Surface interval") rather than by clock time,
   because exact times were not on the old site. Add real times if they're fixed.
@@ -228,4 +228,4 @@ Phone / WhatsApp `+66 95 438 5374` · `thaidivingpro@gmail.com` ·
 25, 47 Moo 7, Chaloklum, Koh Phangan, Surat Thani 84280, Thailand ·
 [@thediversboatkpg](https://www.instagram.com/thediversboatkpg/)
 
-Departures daily at 10:00 from Chaloklum.
+Departures daily at 9:30 from Chaloklum.
