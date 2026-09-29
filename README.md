@@ -92,10 +92,10 @@ change one, change all six — they are byte-identical between `<body>` and
 
 Served by **GitHub Pages** from `main` at the repository root — no build step.
 
-Live at **https://boristdb.github.io/diversboatkpg/**
-
-`thediversboat-kohphangan.com` still points at the old Wix site. Nothing here
-touches that; this is a parallel staging site until you choose to cut over.
+Live at **https://www.thediversboat-kohphangan.com/** (the `CNAME` file points
+Pages at the domain; `boristdb.github.io/diversboatkpg/` redirects there).
+Canonical URLs, Open Graph tags, JSON-LD, `sitemap.xml` and `robots.txt` all
+use the `www.thediversboat-kohphangan.com` address.
 
 ### Why every path is relative
 
@@ -115,19 +115,6 @@ Two consequences worth remembering:
   a base (which turns `/assets/…` into a harmless `//assets/…` and hides it).
 
 `.nojekyll` stops Pages running the files through Jekyll.
-
-### Cutting over to the real domain
-
-1. Add a `CNAME` file at the root containing `www.thediversboat-kohphangan.com`
-2. Point the domain's DNS at GitHub Pages (CNAME record to `boristdb.github.io`)
-3. Swap the canonical URLs back:
-
-```bash
-grep -rl 'boristdb.github.io/diversboatkpg' *.html sitemap.xml robots.txt \
-  | xargs sed -i '' 's|https://boristdb.github.io/diversboatkpg|https://www.thediversboat-kohphangan.com|g'
-```
-
-Relative asset paths need no change — that is the point of them.
 
 ### Local preview
 
