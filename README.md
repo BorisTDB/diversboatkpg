@@ -97,6 +97,15 @@ Pages at the domain; `boristdb.github.io/diversboatkpg/` redirects there).
 Canonical URLs, Open Graph tags, JSON-LD, `sitemap.xml` and `robots.txt` all
 use the `www.thediversboat-kohphangan.com` address.
 
+### FAQ structured data
+
+Each page's `FAQPage` JSON-LD is generated from the questions visible in its
+`<div class="faq">`. After editing any FAQ text, run:
+
+```bash
+powershell -ExecutionPolicy Bypass -File tools/sync-faq.ps1
+```
+
 ### Why every path is relative
 
 A project Pages site is served from a **subpath** (`/diversboatkpg/`), so

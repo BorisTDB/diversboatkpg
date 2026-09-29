@@ -168,6 +168,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .eyebrow--plain::before { display: none; }
 
 .h-hero {
+  /* the slogan is a <p> (the page's h1 names what we do), so it takes the
+     heading face explicitly */
+  font-family: var(--display);
+  font-variation-settings: "wdth" 112;
+  font-weight: 800;
+  margin: 0;
+  text-wrap: balance;
   font-size: clamp(2.4rem, 5vw, 4.4rem);
   letter-spacing: -0.035em;
   line-height: 0.94;
@@ -1085,6 +1092,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: relative;
 }
 .map img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(0.8) brightness(0.9); }
+.map--live iframe {
+  display: block; width: 100%; aspect-ratio: 4 / 3; border: 0;
+  background: var(--d24);
+}
 
 .faq { margin-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--hair); }
 .faq details { border-bottom: 1px solid var(--hair); }
