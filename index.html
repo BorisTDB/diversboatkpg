@@ -51,7 +51,7 @@
 }
 </script>
 </head>
-<body>
+<body class="has-deep">
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -59,6 +59,17 @@
      Ambient water: sunlight from above, bubbles rising past you, and the
      pressure of the deep closing in at the edges.
      ====================================================================== -->
+<!-- What you'd see at each depth. The layer matching the dive computer's
+     reading fades in; images load as you get near them. -->
+<div class="deep" aria-hidden="true">
+  <img data-from="0"  data-to="10" data-src="assets/img/bg-batfish"   alt="">
+  <img data-from="10" data-to="17" data-src="assets/img/bg-jacks"     alt="">
+  <img data-from="17" data-to="25" data-src="assets/img/bg-barracuda" alt="">
+  <img data-from="25" data-to="30" data-src="assets/img/bg-grouper"   alt="">
+  <img data-from="30" data-to="35" data-src="assets/img/bg-jelly"     alt="">
+  <img data-from="35" data-to="41" data-src="assets/img/bg-softcoral" alt="">
+</div>
+
 <div class="ambient" aria-hidden="true">
   <div class="rays"></div>
   <div class="motes"></div>
@@ -496,7 +507,7 @@
           </div>
           <div class="card__body">
             <h3 class="h-card">Basic Diver</h3>
-            <p class="data">1½ days · No certification</p>
+            <p class="data">1 day · No certification</p>
             <p>A step past the Try Dive: more skills, more bottom time, and a proper taste of diving.</p>
             <div class="card__foot"><p class="price">4,900฿</p><a class="tlink" href="experiences.html#basic-diver">More</a></div>
           </div>

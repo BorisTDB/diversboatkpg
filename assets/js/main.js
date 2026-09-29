@@ -112,6 +112,54 @@
     return { d: last.d, z: last.z };
   }
 
+  /* ----------------------------------------------------------------------
+     Depth backdrop — the photo for the band you're in fades up behind the
+     page, under a tint that follows the depth ramp. A layer's image is
+     only fetched once you're within one band of it.
+     ---------------------------------------------------------------------- */
+  var deep   = document.querySelector('.deep');
+  var layers = deep ? [].slice.call(deep.querySelectorAll('img')) : [];
+  var ramp   = [                       /* depth, r, g, b — mirrors --d03…--d42 */
+    [0, 79, 179, 212], [5, 31, 136, 174], [10, 15, 107, 144], [15, 10, 84, 118],
+    [20, 8, 65, 94], [25, 6, 50, 72], [30, 5, 37, 52], [35, 3, 25, 37], [40, 1, 13, 21]
+  ];
+  var onLayer = -1;
+
+  function loadLayer(img) {
+    if (!img || img.src) return;
+    var base = img.dataset.src;
+    img.sizes  = '100vw';
+    img.srcset = base + '-960.jpg 960w, ' + base + '-1920.jpg 1920w';
+    img.src    = base + '-1920.jpg';
+  }
+
+  function tint(d) {
+    for (var i = 0; i < ramp.length - 1; i++) {
+      var a = ramp[i], b = ramp[i + 1];
+      if (d <= b[0] || i === ramp.length - 2) {
+        var t = Math.min(1, Math.max(0, (d - a[0]) / (b[0] - a[0])));
+        return 'rgba(' + Math.round(lerp(a[1], b[1], t)) + ',' +
+          Math.round(lerp(a[2], b[2], t)) + ',' + Math.round(lerp(a[3], b[3], t)) + ',' +
+          lerp(0.62, 0.8, Math.min(1, d / 40)).toFixed(3) + ')';
+      }
+    }
+  }
+
+  function paintDeep(d) {
+    if (!layers.length) return;
+    deep.style.setProperty('--tint', tint(d));
+
+    var hit = layers.length - 1;
+    for (var i = 0; i < layers.length; i++) {
+      if (d < Number(layers[i].dataset.to)) { hit = i; break; }
+    }
+    if (hit === onLayer) return;
+    onLayer = hit;
+    loadLayer(layers[hit]);
+    loadLayer(layers[hit + 1]);
+    layers.forEach(function (img, i) { img.classList.toggle('is-on', i === hit); });
+  }
+
   var lastZone = '';
 
   function paint() {
@@ -119,6 +167,7 @@
     var frac = Math.min(1, Math.max(0, r.d / maxD));
 
     root.style.setProperty('--depth', frac.toFixed(4));
+    paintDeep(r.d);
 
     if (out)  out.firstChild.nodeValue = r.d.toFixed(1);
     if (pin)  pin.style.top = (frac * 100).toFixed(2) + '%';
