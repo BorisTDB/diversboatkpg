@@ -593,22 +593,6 @@ ul { margin: 0; padding: 0; list-style: none; }
     linear-gradient(to right, rgba(2, 22, 36, 0.86) 0%, rgba(2, 22, 36, 0.42) 42%, transparent 70%),
     radial-gradient(120% 55% at 50% -12%, rgba(215, 246, 255, 0.5) 0%, transparent 70%);
 }
-/* Surface shimmer, top edge only. */
-.hero::after {
-  content: ""; position: absolute; inset: 0 0 auto; height: 34vh; z-index: -1;
-  background:
-    repeating-linear-gradient(101deg,
-      transparent 0 26px, rgba(230, 250, 255, 0.11) 26px 31px, transparent 31px 62px),
-    repeating-linear-gradient(83deg,
-      transparent 0 42px, rgba(230, 250, 255, 0.08) 42px 46px, transparent 46px 96px);
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
-  mix-blend-mode: screen;
-  animation: shimmer 13s ease-in-out infinite alternate;
-}
-@keyframes shimmer {
-  from { transform: translateX(-26px) skewX(-2deg); }
-  to   { transform: translateX(26px)  skewX(2deg); }
-}
 
 .hero__grid {
   display: grid; gap: clamp(2rem, 5vw, 4rem);
