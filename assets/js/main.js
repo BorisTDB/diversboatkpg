@@ -218,6 +218,46 @@
   });
 
   /* ----------------------------------------------------------------------
+     Google reviews — clamp long ones behind "Read more", arrows page
+     the rail and dim at either end.
+     ---------------------------------------------------------------------- */
+  [].slice.call(document.querySelectorAll('.review__txt')).forEach(function (txt) {
+    if (txt.scrollHeight <= txt.clientHeight + 2) return;
+    var more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'review__more';
+    more.textContent = 'Read more';
+    more.setAttribute('aria-expanded', 'false');
+    more.addEventListener('click', function () {
+      var open = txt.classList.toggle('is-open');
+      more.textContent = open ? 'Show less' : 'Read more';
+      more.setAttribute('aria-expanded', String(open));
+    });
+    txt.parentNode.appendChild(more);
+  });
+
+  var revRail = document.querySelector('.reviews__rail');
+  var revBtns = [].slice.call(document.querySelectorAll('.reviews__btn'));
+
+  if (revRail && revBtns.length) {
+    var revEnds = function () {
+      var max = revRail.scrollWidth - revRail.clientWidth;
+      revBtns[0].disabled = revRail.scrollLeft <= 2;
+      revBtns[1].disabled = revRail.scrollLeft >= max - 2;
+      revBtns[0].parentNode.hidden = max <= 2;
+    };
+    revBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var step = revRail.clientWidth * 0.9 * Number(btn.dataset.dir);
+        revRail.scrollBy({ left: step, behavior: calm.matches ? 'auto' : 'smooth' });
+      });
+    });
+    revRail.addEventListener('scroll', revEnds, { passive: true });
+    window.addEventListener('resize', revEnds);
+    revEnds();
+  }
+
+  /* ----------------------------------------------------------------------
      Floating WhatsApp button, once past the hero
      ---------------------------------------------------------------------- */
   var wa = document.querySelector('.wa');

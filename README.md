@@ -203,16 +203,16 @@ client's own words, lightly edited for tone.
   "20+ logged dives", which the old site did state.
 - Section headings and the hero line.
 
-**Deliberately left out:** the old site had a "What our divers say" heading with
-no reviews behind it. Rather than invent testimonials, there is a trust strip
-(SSI certification, six languages, Koh Tao since 2015) where they would go.
-To add real ones, drop a card grid into the `.trust` block in the 5 m section.
+**Reviews:** the "What our divers say" rail under the trust strip in the 5 m
+section holds real Google reviews, copied by hand from the
+[Google Maps listing](https://maps.app.goo.gl/bEEDKP3wQrKL8BUb9). They don't
+update themselves — refresh the cards, the 5.0 rating and the review count
+(354) in `index.html` from time to time.
 
 ---
 
 ## Before launch
 
-- [ ] **Add real reviews** — see above.
 - [ ] **Confirm the dive-day timeline** reflects how the day actually runs.
 - [ ] **Embed a live map** in the `.map` block on the homepage and
       `dive-sites.html` if you want directions — currently static screenshots
