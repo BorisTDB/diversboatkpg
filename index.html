@@ -28,7 +28,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
-<link rel="preload" as="image" href="assets/img/whaleshark-hero-1600.jpg" imagesrcset="assets/img/whaleshark-hero-800.jpg 800w, assets/img/whaleshark-hero-1600.jpg 1600w, assets/img/whaleshark-hero-2048.jpg 2048w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/whaleshark-hero-1600.jpg" imagesrcset="assets/img/whaleshark-hero-800.jpg 800w, assets/img/whaleshark-hero-1600.jpg 1600w, assets/img/whaleshark-hero-2048.jpg 2048w" imagesizes="100vw" media="not all and (orientation: portrait) and (max-width: 900px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/whaleshark-hero-portrait-1000.jpg" imagesrcset="assets/img/whaleshark-hero-portrait-600.jpg 600w, assets/img/whaleshark-hero-portrait-1000.jpg 1000w" imagesizes="100vw" media="(orientation: portrait) and (max-width: 900px)" fetchpriority="high">
 <script>document.documentElement.className+=" js";</script>
 <link rel="stylesheet" href="assets/css/main.css">
 
@@ -276,14 +277,19 @@
        0 m — the surface
        ==================================================================== -->
   <section class="hero" data-depth="0" data-zone="Surface">
-    <div class="hero__media">
+    <picture class="hero__media">
+      <!-- Tall screens get a head-on crop: the landscape shot is too long to read in a narrow slice -->
+      <source media="(orientation: portrait) and (max-width: 900px)"
+              srcset="assets/img/whaleshark-hero-portrait-600.jpg 600w,
+                      assets/img/whaleshark-hero-portrait-1000.jpg 1000w"
+              sizes="100vw" width="1000" height="2164">
       <img src="assets/img/whaleshark-hero-1600.jpg"
            srcset="assets/img/whaleshark-hero-800.jpg 800w,
                    assets/img/whaleshark-hero-1600.jpg 1600w,
                    assets/img/whaleshark-hero-2048.jpg 2048w"
            sizes="100vw" width="1600" height="900" fetchpriority="high" decoding="async"
            alt="A whale shark glides through open blue water at Sail Rock, small fish trailing beneath it.">
-    </div>
+    </picture>
 
     <div class="wrap">
       <div class="hero__grid">
@@ -674,7 +680,7 @@
 
       <div class="split rise" style="margin-top:clamp(3rem,6vw,4.5rem)">
         <div class="split__media">
-          <img src="assets/img/diver-portrait-800.jpg" srcset="assets/img/diver-portrait-800.jpg 800w, assets/img/diver-portrait-1600.jpg 1600w" sizes="(max-width: 899px) 100vw, 46vw" width="450" height="800" loading="lazy" decoding="async" alt="A diver surrounded on all sides by a dense school of silver fish.">
+          <img src="assets/img/whaleshark-divers-above-800.jpg" srcset="assets/img/whaleshark-divers-above-800.jpg 800w, assets/img/whaleshark-divers-above-1600.jpg 1600w" sizes="(max-width: 899px) 100vw, 46vw" width="800" height="450" loading="lazy" decoding="async" alt="A whale shark swimming beneath a group of divers at Sail Rock.">
           <p class="split__badge">Open Water dives<br>run at Sail Rock</p>
         </div>
         <div class="split__body">
