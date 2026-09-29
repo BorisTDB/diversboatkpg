@@ -584,7 +584,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (orientation: portrait) and (max-width: 900px) {
   /* the frame starts above the hero so the shark sits higher, clear of the copy */
   .hero__media { top: -16%; }
-  .hero__media img { object-position: 78% 46%; }
+  .hero__media img { object-position: 74% 46%; }
 }
 /* Scrims: dark at bottom-left for copy, light at top for the surface. */
 .hero::before {
