@@ -97,6 +97,25 @@ Pages at the domain; `boristdb.github.io/diversboatkpg/` redirects there).
 Canonical URLs, Open Graph tags, JSON-LD, `sitemap.xml` and `robots.txt` all
 use the `www.thediversboat-kohphangan.com` address.
 
+### Spanish and French
+
+`es/` and `fr/` are **generated** — never edit them by hand. English is the
+source; the translations live in `tools/i18n/es.tsv` and `fr.tsv`, one
+`key<TAB>text` line per string, keyed by a hash of the English text.
+
+After changing any English copy:
+
+```bash
+powershell -ExecutionPolicy Bypass -File tools/i18n.ps1 extract
+powershell -ExecutionPolicy Bypass -File tools/i18n.ps1 build
+```
+
+`extract` refreshes `tools/i18n/en.tsv`; `build` regenerates both languages,
+adds the EN/ES/FR switcher and `hreflang` links to every page, rebuilds the
+FAQ structured data, and lists any English string that has no translation
+yet (it stays in English until its line is added to `es.tsv` / `fr.tsv`).
+Customer reviews are wrapped in `<!-- i18n:skip -->` and stay in English.
+
 ### FAQ structured data
 
 Each page's `FAQPage` JSON-LD is generated from the questions visible in its

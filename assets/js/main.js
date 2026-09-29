@@ -270,16 +270,22 @@
      Google reviews — clamp long ones behind "Read more", arrows page
      the rail and dim at either end.
      ---------------------------------------------------------------------- */
+  var moreLabels = {
+    en: ['Read more', 'Show less'],
+    es: ['Leer más', 'Mostrar menos'],
+    fr: ['Lire la suite', 'Réduire']
+  }[(root.lang || 'en').slice(0, 2)] || ['Read more', 'Show less'];
+
   [].slice.call(document.querySelectorAll('.review__txt')).forEach(function (txt) {
     if (txt.scrollHeight <= txt.clientHeight + 2) return;
     var more = document.createElement('button');
     more.type = 'button';
     more.className = 'review__more';
-    more.textContent = 'Read more';
+    more.textContent = moreLabels[0];
     more.setAttribute('aria-expanded', 'false');
     more.addEventListener('click', function () {
       var open = txt.classList.toggle('is-open');
-      more.textContent = open ? 'Show less' : 'Read more';
+      more.textContent = open ? moreLabels[1] : moreLabels[0];
       more.setAttribute('aria-expanded', String(open));
     });
     txt.parentNode.appendChild(more);
