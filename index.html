@@ -28,25 +28,122 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SportsActivityLocation",
-  "name": "The Diver's Boat Koh Phangan",
-  "description": "SSI diving centre in Chaloklum, Koh Phangan, with its own boat running daily trips to Sail Rock, Koh Ma, Little Sail Rock and the oil platform.",
-  "url": "https://www.thediversboat-kohphangan.com/",
-  "telephone": "+66954385374",
-  "email": "thaidivingpro@gmail.com",
-  "image": "https://www.thediversboat-kohphangan.com/assets/img/whaleshark-hero-1600.jpg",
-  "priceRange": "1,500฿ – 12,900฿",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "25, 47 Moo 7, Chaloklum",
-    "addressLocality": "Koh Phangan",
-    "addressRegion": "Surat Thani",
-    "postalCode": "84280",
-    "addressCountry": "TH"
-  },
-  "sameAs": [
-    "https://www.instagram.com/thediversboatkpg/",
-    "https://www.facebook.com/share/1F79g3NHKT/"
+  "@graph": [
+    {
+      "@type": ["SportsActivityLocation", "LocalBusiness"],
+      "@id": "https://www.thediversboat-kohphangan.com/#business",
+      "name": "The Diver's Boat Koh Phangan",
+      "alternateName": ["The Diver's Boat KPG", "The Divers Boat Koh Phangan"],
+      "description": "SSI dive centre in Chaloklum, Koh Phangan, Thailand, with its own boat running daily 9:30 trips to Sail Rock, Koh Ma, Little Sail Rock and the oil platform. Try Dive, Fun Dive, snorkelling and SSI courses from Open Water to Rescue, in small groups of maximum 20 divers on board.",
+      "url": "https://www.thediversboat-kohphangan.com/",
+      "telephone": "+66954385374",
+      "email": "thaidivingpro@gmail.com",
+      "logo": "https://www.thediversboat-kohphangan.com/assets/img/logo-640.png",
+      "image": [
+        "https://www.thediversboat-kohphangan.com/assets/img/whaleshark-hero-1600.jpg",
+        "https://www.thediversboat-kohphangan.com/assets/img/boat-mooring-1600.jpg",
+        "https://www.thediversboat-kohphangan.com/assets/img/barracuda-tornado-1600.jpg"
+      ],
+      "priceRange": "1,500฿ – 12,900฿",
+      "currenciesAccepted": "THB",
+      "foundingDate": "2024-01",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "25, 47 Moo 7, Chaloklum",
+        "addressLocality": "Koh Phangan",
+        "addressRegion": "Surat Thani",
+        "postalCode": "84280",
+        "addressCountry": "TH"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 9.7854359, "longitude": 100.0042142 },
+      "hasMap": "https://maps.app.goo.gl/bEEDKP3wQrKL8BUb9",
+      "areaServed": [
+        { "@type": "Place", "name": "Koh Phangan" },
+        { "@type": "Place", "name": "Sail Rock (Hin Bai), Gulf of Thailand" }
+      ],
+      "knowsLanguage": ["es", "en", "fr", "nl", "he", "ru", "zh"],
+      "memberOf": { "@type": "Organization", "name": "SSI — Scuba Schools International", "url": "https://www.divessi.com/" },
+      "parentOrganization": { "@type": "Organization", "name": "The Diver's Boat Koh Tao", "url": "https://www.thediversboat.com/", "foundingDate": "2015" },
+      "employee": [
+        { "@id": "https://www.thediversboat-kohphangan.com/#boris-collado" },
+        { "@id": "https://www.thediversboat-kohphangan.com/#ruiyao-wang" }
+      ],
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Own dive boat (Rungworawan), maximum 20 divers", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Daily 9:30 departure from Chaloklum", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "New 2024 equipment, wetsuits XS to XXL", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Underwater video of every dive included", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Nitrox available", "value": true }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Diving in Koh Phangan",
+        "itemListElement": [
+          { "@type": "Offer", "price": "3200", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/experiences.html#fun-dive",
+            "itemOffered": { "@type": "Service", "name": "Fun Dive at Sail Rock and Koh Phangan dive sites", "description": "One-day boat trip for certified divers, maximum four divers per guide." } },
+          { "@type": "Offer", "price": "4200", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/experiences.html#try-dive",
+            "itemOffered": { "@type": "Service", "name": "Try Dive (no certification needed)", "description": "One full day for first-time divers, maximum two students per instructor, at Koh Ma or Sail Rock." } },
+          { "@type": "Offer", "price": "4900", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/experiences.html#basic-diver",
+            "itemOffered": { "@type": "Service", "name": "SSI Basic Diver", "description": "One-day introduction to diving with more skills and bottom time than the Try Dive." } },
+          { "@type": "Offer", "price": "1500", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/experiences.html#snorkelling",
+            "itemOffered": { "@type": "Service", "name": "Snorkelling trip to Sail Rock", "description": "One-day boat trip for snorkellers and non-divers, on the same boat as the divers." } },
+          { "@type": "Offer", "price": "12900", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/courses.html#open-water",
+            "itemOffered": { "@type": "Course", "name": "SSI Open Water Diver", "description": "Three-day SSI certification course to 18 m, maximum four students per instructor.", "provider": { "@id": "https://www.thediversboat-kohphangan.com/#business" } } },
+          { "@type": "Offer", "price": "12500", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/courses.html#advanced",
+            "itemOffered": { "@type": "Course", "name": "SSI Advanced Open Water", "description": "Two-day SSI course: deeper sites, buoyancy and navigation.", "provider": { "@id": "https://www.thediversboat-kohphangan.com/#business" } } },
+          { "@type": "Offer", "price": "8500", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/courses.html#deep",
+            "itemOffered": { "@type": "Course", "name": "SSI Deep Diving Specialty", "description": "Two-day SSI specialty for dives to 40 m at Sail Rock.", "provider": { "@id": "https://www.thediversboat-kohphangan.com/#business" } } },
+          { "@type": "Offer", "price": "11600", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/courses.html#rescue",
+            "itemOffered": { "@type": "Course", "name": "SSI Rescue Diver", "description": "Two-day SSI course in preventing and managing problems underwater.", "provider": { "@id": "https://www.thediversboat-kohphangan.com/#business" } } },
+          { "@type": "Offer", "price": "4200", "priceCurrency": "THB", "url": "https://www.thediversboat-kohphangan.com/courses.html#nitrox",
+            "itemOffered": { "@type": "Course", "name": "SSI Enriched Air Nitrox", "description": "One-day SSI specialty for longer bottom times on enriched air.", "provider": { "@id": "https://www.thediversboat-kohphangan.com/#business" } } }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/thediversboatkpg/",
+        "https://www.facebook.com/share/1F79g3NHKT/",
+        "https://maps.app.goo.gl/bEEDKP3wQrKL8BUb9"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.thediversboat-kohphangan.com/#boris-collado",
+      "name": "Boris Collado",
+      "jobTitle": "SSI Instructor #112758",
+      "description": "SSI diving instructor with over 1,000 dives in the Gulf of Thailand.",
+      "worksFor": { "@id": "https://www.thediversboat-kohphangan.com/#business" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.thediversboat-kohphangan.com/#ruiyao-wang",
+      "name": "Ruiyao Wang",
+      "knowsLanguage": ["zh", "es", "en"],
+      "worksFor": { "@id": "https://www.thediversboat-kohphangan.com/#business" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.thediversboat-kohphangan.com/#website",
+      "url": "https://www.thediversboat-kohphangan.com/",
+      "name": "The Diver's Boat Koh Phangan",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://www.thediversboat-kohphangan.com/#business" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.thediversboat-kohphangan.com/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "I've never dived before. Where do I start?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The Try Dive. One full day, two students per instructor, and no certification needed — you'll breathe underwater for the first time in the calm, current-free water at Koh Ma. If you love it, the Basic Diver and Open Water course pick up from exactly where you finished." } },
+        { "@type": "Question", "name": "Can we come as a family, or with children?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and plenty do. Non-divers can join the boat and snorkel at Sail Rock for 1,500฿ while the rest of the group dives. Message us on WhatsApp with your group's ages and experience and we'll put together a plan that keeps everybody happy on the same boat." } },
+        { "@type": "Question", "name": "Will I see a whale shark?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Honestly, maybe. Sail Rock is one of the best places in the Gulf of Thailand for them and our guests do see them — but they are wild animals on their own schedule. What you will reliably see are big schools of barracuda, batfish and trevally around the pinnacle." } },
+        { "@type": "Question", "name": "What do I need to bring?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A swimsuit, a towel and sun protection. All diving equipment is included — regulators, BCDs and wetsuits in XS to XXL, all new as of 2024 and checked daily. Snacks, water and the underwater video of your dive are included too." } },
+        { "@type": "Question", "name": "Which languages do you teach in?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Spanish, English, French, Dutch, Hebrew and Russian. Rui also speaks Chinese, so most people get their briefing in their own language." } }
+      ]
+    }
   ]
 }
 </script>
