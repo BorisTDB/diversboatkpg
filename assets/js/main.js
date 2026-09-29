@@ -97,7 +97,10 @@
 
   function readDepth() {
     if (!stops.length) return { d: 0, z: '' };
-    var eye = window.scrollY + window.innerHeight * 0.42;
+    /* The eye-line sits 42% down the screen, but it eases in from the very
+       top over the first stretch of scrolling, so the page opens at 0.0 m. */
+    var lead = window.innerHeight * 0.42;
+    var eye  = window.scrollY + lead * Math.min(1, window.scrollY / lead);
 
     if (eye <= stops[0].y) return { d: stops[0].d, z: stops[0].z };
 

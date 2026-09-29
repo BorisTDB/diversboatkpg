@@ -1421,6 +1421,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: opacity 1.1s var(--ease), transform 6s var(--ease);
 }
 .deep img.is-on { opacity: 1; transform: scale(1); }
+/* The jack ball is a dark shape in dark water; lift it a little through the tint */
+.deep img[data-src$="bg-jacks"] { filter: brightness(1.3) contrast(1.15); }
 .deep::after {
   content: ""; position: absolute; inset: 0;
   background: var(--tint, rgba(8, 65, 94, 0.7));

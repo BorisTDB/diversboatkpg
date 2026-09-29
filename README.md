@@ -116,6 +116,12 @@ FAQ structured data, and lists any English string that has no translation
 yet (it stays in English until its line is added to `es.tsv` / `fr.tsv`).
 Customer reviews are wrapped in `<!-- i18n:skip -->` and stay in English.
 
+### After changing CSS or JS
+
+Pages load `main.css?v=…` and `main.js?v=…`. Bump that date in the six
+English pages (then run the i18n build) whenever you change either file, or
+phones keep showing the old version from their cache.
+
 ### FAQ structured data
 
 Each page's `FAQPage` JSON-LD is generated from the questions visible in its
