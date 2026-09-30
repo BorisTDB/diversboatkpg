@@ -20,7 +20,7 @@ $ErrorActionPreference = 'Stop'
 $root  = Split-Path $PSScriptRoot -Parent
 $dir   = Join-Path $PSScriptRoot 'i18n'
 $site  = 'https://www.thediversboat-kohphangan.com'
-$pages = 'index.html', 'experiences.html', 'courses.html', 'dive-sites.html', 'about.html', 'gallery.html', 'ssi-open-water-course.html'
+$pages = 'index.html', 'experiences.html', 'courses.html', 'dive-sites.html', 'about.html', 'gallery.html', 'ssi-open-water-course.html', 'sail-rock-diving-guide.html'
 $langs = [ordered]@{ en = 'EN'; es = 'ES'; fr = 'FR' }
 $locales = @{ en = 'en_GB'; es = 'es_ES'; fr = 'fr_FR' }
 $utf8  = New-Object Text.UTF8Encoding $false
@@ -86,7 +86,7 @@ function Map-Page([string]$html, [scriptblock]$fn) {
   # JSON-LD (not the generated FAQ, which is rebuilt from the visible text)
   $html = [regex]::Replace($html, '(?s)<script type="application/ld\+json">.*?</script>', {
       param($m)
-      [regex]::Replace($m.Value, '("(?:name|description|jobTitle)":\s*")((?:[^"\\]|\\.)*)(")', {
+      [regex]::Replace($m.Value, '("(?:name|headline|description|jobTitle)":\s*")((?:[^"\\]|\\.)*)(")', {
           param($j)
           $raw = $j.Groups[2].Value.Replace('\"', '"')
           $n = Norm $raw
