@@ -20,7 +20,7 @@ $ErrorActionPreference = 'Stop'
 $root  = Split-Path $PSScriptRoot -Parent
 $dir   = Join-Path $PSScriptRoot 'i18n'
 $site  = 'https://www.thediversboat-kohphangan.com'
-$pages = 'index.html', 'experiences.html', 'courses.html', 'dive-sites.html', 'about.html', 'gallery.html', 'ssi-open-water-course.html', 'sail-rock-diving-guide.html', 'whale-sharks-koh-phangan.html', 'ssi-advanced-open-water-course.html', 'ssi-deep-nitrox-courses.html', 'ssi-rescue-diver-course.html', 'ssi-divemaster-course.html'
+$pages = 'index.html', 'experiences.html', 'courses.html', 'dive-sites.html', 'about.html', 'gallery.html', 'ssi-open-water-course.html', 'sail-rock-diving-guide.html', 'whale-sharks-koh-phangan.html', 'ssi-advanced-open-water-course.html', 'ssi-deep-nitrox-courses.html', 'ssi-rescue-diver-course.html', 'ssi-divemaster-course.html', 'diving-health-safety.html'
 $langs = [ordered]@{ en = 'EN'; es = 'ES'; fr = 'FR' }
 $locales = @{ en = 'en_GB'; es = 'es_ES'; fr = 'fr_FR' }
 $utf8  = New-Object Text.UTF8Encoding $false
