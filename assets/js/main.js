@@ -93,6 +93,24 @@
     });
   }
 
+  /* The zone label follows the depth itself, named after the stops and the
+     certification limits a diver knows: [from metres, en, es, fr]. */
+  var zones = [
+    [0,  'Surface',        'Superficie',          'Surface'],
+    [1.5,'Deco stop',      'Parada deco',         'Palier de déco'],
+    [4,  'Safety stop',    'Parada de seguridad', 'Palier de sécurité'],
+    [6,  'Open Water',     'Open Water',          'Open Water'],
+    [18, 'Advanced',       'Advanced',            'Advanced'],
+    [30, 'Deep Specialty', 'Deep Specialty',      'Deep Specialty']
+  ];
+  var lang = { es: 2, fr: 3 }[(root.lang || 'en').slice(0, 2)] || 1;
+
+  function zoneFor(d) {
+    var name = zones[0][lang];
+    for (var i = 0; i < zones.length; i++) if (d >= zones[i][0]) name = zones[i][lang];
+    return name;
+  }
+
   function lerp(a, b, t) { return a + (b - a) * t; }
 
   function readDepth() {
@@ -174,7 +192,8 @@
 
     if (out)  out.firstChild.nodeValue = r.d.toFixed(1);
     if (pin)  pin.style.top = (frac * 100).toFixed(2) + '%';
-    if (zone && r.z !== lastZone) { zone.textContent = r.z; lastZone = r.z; }
+    var z = zoneFor(r.d);
+    if (zone && z !== lastZone) { zone.textContent = z; lastZone = z; }
 
     if (hdr) hdr.classList.toggle('is-stuck', window.scrollY > 40);
 
