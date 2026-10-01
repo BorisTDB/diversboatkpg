@@ -1324,7 +1324,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 /* Spanish and French menu labels run longer, so the burger takes over a
    little earlier than the English header alone would need. */
-@media (max-width: 1120px) {
+@media (max-width: 1240px) {
   .nav { display: none; }
   .burger { display: flex; }
 }
