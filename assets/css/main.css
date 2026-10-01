@@ -1154,7 +1154,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute);
   margin-bottom: 1rem; font-family: var(--mono); font-variation-settings: normal;
 }
-.foot ul { display: grid; gap: 0.55rem; }
+/* Footer links carry their own vertical padding so each one is a
+   comfortable thumb target on a phone, not an 18 px strip of text. */
+.foot ul { display: grid; gap: 0; }
+.foot li a { display: inline-block; padding: 0.35rem 0; }
+@media (pointer: coarse) { .foot li a { padding: 0.6rem 0; } }
 .foot li a, .foot address a {
   font-size: 0.9375rem; color: var(--ink-soft);
   transition: color 0.2s var(--ease);
