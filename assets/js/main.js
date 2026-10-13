@@ -97,7 +97,8 @@
      certification limits a diver knows: [from metres, en, es, fr]. */
   var zones = [
     [0,  'Surface',        'Superficie',          'Surface'],
-    [1.5,'Deco stop',      'Parada deco',         'Palier de déco'],
+    [0.1,'Snorkeling',     'Snorkel',             'Snorkeling'],
+    [3,  'Deco stop',      'Parada deco',         'Palier de déco'],
     [4,  'Safety stop',    'Parada de seguridad', 'Palier de sécurité'],
     [6,  'Open Water',     'Open Water',          'Open Water'],
     [18, 'Advanced',       'Advanced',            'Advanced'],
