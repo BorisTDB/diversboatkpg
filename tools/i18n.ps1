@@ -189,6 +189,9 @@ foreach ($lang in @($langs.Keys | Where-Object { $_ -ne 'en' })) {
       $missing[$k] = $n
       $n
     }
+    # text for one language only, kept in the English page as <!-- only:fr ... -->
+    $html = [regex]::Replace($html, "(?s)<!-- only:$lang (.*?) -->", '$1')
+    $html = [regex]::Replace($html, '(?s)\s*<!-- only:[a-z]+ .*? -->', '')
     $html = $html.Replace('<html lang="en">', "<html lang=`"$lang`">")
     # assets sit one level up
     $html = [regex]::Replace($html, '(?<=[\s"'',])(assets/|favicon\.png|apple-touch-icon\.png)', '../$1')
