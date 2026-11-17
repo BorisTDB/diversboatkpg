@@ -94,17 +94,17 @@
   }
 
   /* The zone label follows the depth itself, named after the stops and the
-     certification limits a diver knows: [from metres, en, es, fr]. */
+     certification limits a diver knows: [from metres, en, es, fr, de]. */
   var zones = [
-    [0,  'Surface',        'Superficie',          'Surface'],
-    [0.1,'Snorkeling',     'Snorkel',             'Snorkeling'],
-    [3,  'Deco stop',      'Parada deco',         'Palier de déco'],
-    [4,  'Safety stop',    'Parada de seguridad', 'Palier de sécurité'],
-    [6,  'Open Water',     'Open Water',          'Open Water'],
-    [18, 'Advanced',       'Advanced',            'Advanced'],
-    [30, 'Deep Specialty', 'Deep Specialty',      'Deep Specialty']
+    [0,  'Surface',        'Superficie',          'Surface',            'Oberfläche'],
+    [0.1,'Snorkeling',     'Snorkel',             'Snorkeling',         'Schnorcheln'],
+    [3,  'Deco stop',      'Parada deco',         'Palier de déco',     'Dekostopp'],
+    [4,  'Safety stop',    'Parada de seguridad', 'Palier de sécurité', 'Sicherheitsstopp'],
+    [6,  'Open Water',     'Open Water',          'Open Water',         'Open Water'],
+    [18, 'Advanced',       'Advanced',            'Advanced',           'Advanced'],
+    [30, 'Deep Specialty', 'Deep Specialty',      'Deep Specialty',     'Deep Specialty']
   ];
-  var lang = { es: 2, fr: 3 }[(root.lang || 'en').slice(0, 2)] || 1;
+  var lang = { es: 2, fr: 3, de: 4 }[(root.lang || 'en').slice(0, 2)] || 1;
 
   function zoneFor(d) {
     var name = zones[0][lang];
@@ -296,7 +296,8 @@
   var moreLabels = {
     en: ['Read more', 'Show less'],
     es: ['Leer más', 'Mostrar menos'],
-    fr: ['Lire la suite', 'Réduire']
+    fr: ['Lire la suite', 'Réduire'],
+    de: ['Weiterlesen', 'Weniger anzeigen']
   }[(root.lang || 'en').slice(0, 2)] || ['Read more', 'Show less'];
 
   [].slice.call(document.querySelectorAll('.review__txt')).forEach(function (txt) {

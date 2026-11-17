@@ -1,4 +1,4 @@
-# Builds the Spanish (/es/) and French (/fr/) sites from the English pages.
+# Builds the Spanish (/es/), French (/fr/) and German (/de/) sites from the English pages.
 #
 #   powershell -ExecutionPolicy Bypass -File tools/i18n.ps1 extract
 #       Writes tools/i18n/en.tsv: every translatable string on the English
@@ -21,8 +21,8 @@ $root  = Split-Path $PSScriptRoot -Parent
 $dir   = Join-Path $PSScriptRoot 'i18n'
 $site  = 'https://www.thediversboat-kohphangan.com'
 $pages = 'index.html', 'experiences.html', 'courses.html', 'dive-sites.html', 'about.html', 'gallery.html', 'ssi-open-water-course.html', 'sail-rock-diving-guide.html', 'whale-sharks-koh-phangan.html', 'ssi-advanced-open-water-course.html', 'ssi-deep-nitrox-courses.html', 'ssi-rescue-diver-course.html', 'ssi-divemaster-course.html', 'diving-health-safety.html', 'marine-life-koh-phangan.html', 'koh-phangan-vs-koh-tao-diving.html', 'guides.html', 'blog.html', 'best-time-to-dive-koh-phangan.html', 'dive-report-october-2026.html'
-$langs = [ordered]@{ en = 'EN'; es = 'ES'; fr = 'FR' }
-$locales = @{ en = 'en_GB'; es = 'es_ES'; fr = 'fr_FR' }
+$langs = [ordered]@{ en = 'EN'; es = 'ES'; fr = 'FR'; de = 'DE' }
+$locales = @{ en = 'en_GB'; es = 'es_ES'; fr = 'fr_FR'; de = 'de_DE' }
 $utf8  = New-Object Text.UTF8Encoding $false
 $sep   = [string][char]1
 $md5   = [Security.Cryptography.MD5]::Create()
