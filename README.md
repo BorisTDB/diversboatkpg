@@ -247,6 +247,6 @@ update themselves — refresh the cards, the 5.0 rating and the review count
 
 Phone / WhatsApp `+66 95 438 5374` · `thaidivingpro@gmail.com` ·
 25, 47 Moo 7, Chaloklum, Koh Phangan, Surat Thani 84280, Thailand ·
-[@thediversboatkpg](https://www.instagram.com/thediversboatkpg/)
+[@thediversboatkohphangan](https://www.instagram.com/thediversboatkohphangan/)
 
 Departures daily at 9:30 from Chaloklum.
